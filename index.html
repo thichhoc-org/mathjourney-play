@@ -9,12 +9,23 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" href="./icon.svg" type="image/svg+xml" />
     <title>MathJourney – Vũ vượt Vũ Môn</title>
-    <script type="module" crossorigin src="./assets/index-BluWXlmN.js"></script>
+    <!-- Soát UI (UI-29): màn chờ tĩnh hiện ngay khi trang mở (trước khi tải JS): trời + sông + Vũ + bọt nước nổi -->
+    <style>
+      html, body { margin: 0; height: 100%; background: linear-gradient(#cfeaf0 0%, #e6f3ea 40%, #7cc6d3 44%, #2f8ea6 70%, #1d5f78 100%); }
+      #splash { position: fixed; inset: 0; display: grid; place-items: center; }
+      #splash img { width: min(32vmin, 220px); height: auto; animation: sp-bob 1.6s ease-in-out infinite alternate; filter: drop-shadow(0 8px 10px rgba(6, 40, 58, 0.3)); }
+      #splash i { position: absolute; bottom: 18vh; width: 16px; height: 16px; border-radius: 50%; border: 2.5px solid rgba(255, 255, 255, 0.9); background: rgba(255, 255, 255, 0.25); animation: sp-rise 1.8s ease-in infinite; }
+      #splash i:nth-child(2) { margin-left: -46px; animation-delay: 0.4s; } #splash i:nth-child(3) { margin-left: 46px; animation-delay: 0.9s; }
+      @keyframes sp-bob { to { transform: translateY(-10px); } }
+      @keyframes sp-rise { from { transform: translateY(0); opacity: 0.9; } to { transform: translateY(-14vh); opacity: 0; } }
+      @media (prefers-reduced-motion: reduce) { #splash * { animation: none !important; } }
+    </style>
+    <script type="module" crossorigin src="./assets/index-BRQc3yDb.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/pixi-kQN0yC2J.js">
     <link rel="modulepreload" crossorigin href="./assets/react-CiW5Bwbg.js">
-    <link rel="modulepreload" crossorigin href="./assets/pixi-DUDQyPiC.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-tF8J0nM3.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-CGsORtnw.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><div id="splash" aria-label="Đang tải"><img src="./vu-splash.png" alt="" width="207" height="208" /><i></i><i></i><i></i></div></div>
   </body>
 </html>
